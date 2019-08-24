@@ -1,0 +1,47 @@
+# ===================================================================
+# COMMON SPRING BOOT PROPERTIES
+# ===================================================================
+
+# logging configuration
+logging:
+    file: logs/superrduperr.log
+    pattern:
+        file: "%d{dd-MM-yyyy HH:mm:ss.SSS} [%thread] %-5level %logger{36}.%M - %msg%n"
+    level:
+        ROOT: INFO
+        com.deltaa.superrduperr: INFO
+
+# ===================================================================
+
+# spring application configurations
+spring:
+    application:
+        name: SuperrDuperrApp
+    # datasource configurations
+    datasource:
+        type: com.zaxxer.hikari.HikariDataSource
+        url: jdbc:h2:mem:superrduperrdb
+        driverClassName: org.h2.Driver
+        username: sa
+        password: password
+    # jpa configurations
+    jpa:
+        database-platform: org.hibernate.dialect.H2Dialect
+        database: h2
+        show-sql: false
+        generate-ddl: false
+    # h2 DB configurations
+    h2:
+      console:        enabled: true
+        path: /h2console
+        
+# ===================================================================
+
+# application port
+server:
+    port: 8181
+    error:
+      whitelabel:
+        enabled: false
+
+# ===================================================================
